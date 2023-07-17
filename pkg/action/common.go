@@ -27,7 +27,7 @@ import (
 func Hook(config *v1.Config, hook string, strict bool, cloudInitPaths ...string) error {
 	config.Logger.Infof("Running %s hook", hook)
 	oldLevel := config.Logger.GetLevel()
-	config.Logger.SetLevel(logrus.ErrorLevel)
+	config.Logger.SetLevel(logrus.DebugLevel)
 	err := utils.RunStage(config, hook, strict, cloudInitPaths...)
 	config.Logger.SetLevel(oldLevel)
 	if !strict {
