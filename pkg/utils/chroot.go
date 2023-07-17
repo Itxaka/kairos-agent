@@ -82,6 +82,7 @@ func (c *Chroot) Prepare() error {
 		if err != nil {
 			return err
 		}
+		fmt.Printf("mounting %s into %s", mnt, mountPoint)
 		err = c.config.Mounter.Mount(mnt, mountPoint, "bind", mountOptions)
 		if err != nil {
 			return err

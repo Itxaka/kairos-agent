@@ -18,6 +18,7 @@ package utils
 
 import (
 	"fmt"
+	"github.com/sanity-io/litter"
 	"path/filepath"
 	"strings"
 
@@ -53,6 +54,7 @@ func GetAllPartitions() (v1.PartitionList, error) {
 	}
 	for _, d := range blockDevices.Disks {
 		for _, part := range d.Partitions {
+			fmt.Println(litter.Sdump(part))
 			parts = append(parts, ghwPartitionToInternalPartition(part))
 		}
 	}
